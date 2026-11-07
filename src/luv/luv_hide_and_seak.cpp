@@ -4,7 +4,7 @@
 // String arrays for the credits can go in an anonymous namespace
 namespace
 {
-    constexpr bn::string_view code_credits[] = {"Corey Brown, Russell Fisher"};
+    constexpr bn::string_view code_credits[] = {"Corey Brown", "Russell Fisher"};
     constexpr bn::string_view graphics_credits[] = {"Kenney Game Assets"};
     constexpr bn::string_view sfx_credits[] = {""};
     constexpr bn::string_view music_credits[] = {""};
@@ -19,11 +19,11 @@ MJ_GAME_LIST_ADD_SFX_CREDITS(sfx_credits)
 
 namespace luv
 {
-    luv_hide_and_seak::luv_hide_and_seak([[maybe_unused]] int completed_games, [[maybe_unused]] const mj::game_data &data) : mj::game("luv") {}
+    luv_hide_and_seak::luv_hide_and_seak([[maybe_unused]] int completed_games, [[maybe_unused]] const mj::game_data &data) :
+    mj::game("luv"){}
 
-    bn::string<16> luv_hide_and_seak::title() const
-    {
-        return "Hide and fast";
+    bn::string<16> luv_hide_and_seak::title() const {
+        return "Hide and Fast!";
     }
 
     int luv_hide_and_seak::total_frames() const
@@ -31,24 +31,22 @@ namespace luv
         return 300;
     }
 
-    mj::game_result luv_hide_and_seak::play([[maybe_unused]] const mj::game_data &data)
-    {
+    mj::game_result luv_hide_and_seak::play([[maybe_unused]] const mj::game_data& data){
 
         mj::game_result result(victory(), false);
         return result;
     }
 
-    bool luv_hide_and_seak::victory() const
-    {
+    bool luv_hide_and_seak::victory() const {
         return false;
     }
 
-    void luv_hide_and_seak::fade_in([[maybe_unused]] const mj::game_data &data)
-    {
+    void luv_hide_and_seak::fade_in([[maybe_unused]] const mj::game_data& data){
+
     }
 
-    void luv_hide_and_seak::fade_out([[maybe_unused]] const mj::game_data &data)
-    {
+    void luv_hide_and_seak::fade_out([[maybe_unused]] const mj::game_data& data){
+        
     }
 
 }
