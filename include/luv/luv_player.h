@@ -4,6 +4,7 @@
 #include <bn_sprite_ptr.h>
 #include <bn_sprite_animate_actions.h>
 #include <bn_display.h>
+#include "luv/luv_methods.h"
 
 namespace luv {
     // the bounds of the screen
@@ -40,6 +41,8 @@ namespace luv {
         bn::sprite_animate_action<4> _sprite_action;
         //the pixels the player moves
         bn::fixed _speed;
+        bn::size _size;
+        bn::rect _bounding_box;
 
         /**
          * Reads D-pad movement to move the player
