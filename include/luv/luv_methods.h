@@ -1,3 +1,4 @@
+#pragma once
 #include <bn_rect.h>
 #include <bn_fixed.h>
 #include <bn_random.h>
