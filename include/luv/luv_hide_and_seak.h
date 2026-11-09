@@ -2,6 +2,8 @@
 
 #include "mj_game.h"
 #include "luv/luv_player.h"
+#include "luv/luv_anemone.h"
+#include "luv/luv_methods.h"
 #include <bn_regular_bg_ptr.h>
 
 // Create a namespace for Hide and Sea-k Game.
@@ -33,19 +35,19 @@ namespace luv
 
         /**
          * Method that is called repeatedly whilst the game is running.
-         * 
+         *
          * @param data shared information about the game. RNG, number of frames left, etc.
          * @return the mj:data result of whether or not the game has finished and if the title
          * should or should not be hidden.
          */
-        mj::game_result play(const mj::game_data& data) override;
+        mj::game_result play(const mj::game_data &data) override;
 
         /**
          * Method that returns whether or not the player has won this microgame.
          * True - Victory.
          * False - Defeat.
-         * 
-         * In this game, the player achieves victory if they can reach a 
+         *
+         * In this game, the player achieves victory if they can reach a
          * safe anemone hideout before the timer runs out.
          */
         bool victory() const override;
@@ -54,17 +56,17 @@ namespace luv
          * Method that is called repeatedly as the game fades in.
          * @param data information about the game. RNG, number of frames left, etc.
          */
-        void fade_in(const mj::game_data& data) override;
+        void fade_in(const mj::game_data &data) override;
 
         /**
          * Method that is called repeatedly as the game fades in.
          * @param data information about the game. RNG, number of frames left, etc.
          */
-        void fade_out(const mj::game_data& data) override;
-    private:
+        void fade_out(const mj::game_data &data) override;
 
-    luv_player _player;
-    bn::regular_bg_ptr _background;
-    
+    private:
+        luv_player _player;
+        luv_anemone _anemone;
+        bn::regular_bg_ptr _background;
     };
 };

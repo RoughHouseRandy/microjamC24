@@ -18,7 +18,10 @@ namespace luv
     void luv_player::update()
     {
         _update_position();
-        _update_animation();
+        
+        if(bn::keypad::any_held()){
+            _update_animation();
+        }
     }
 
     /**

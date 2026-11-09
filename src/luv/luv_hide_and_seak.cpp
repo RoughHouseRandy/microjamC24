@@ -23,7 +23,8 @@ namespace luv
     luv_hide_and_seak::luv_hide_and_seak([[maybe_unused]] int completed_games, [[maybe_unused]] const mj::game_data &data) :
     mj::game("luv"),
     _player({20,20}, 2),
-    _background(bn::regular_bg_items::seafloor.create_bg(0,0))
+    _anemone(),
+    _background(bn::regular_bg_items::seafloor.create_bg(0,0))    
     {}
 
     bn::string<16> luv_hide_and_seak::title() const {
@@ -37,6 +38,7 @@ namespace luv
 
     mj::game_result luv_hide_and_seak::play([[maybe_unused]] const mj::game_data& data){
 
+        _player.update();
         mj::game_result result(victory(), false);
         return result;
     }
