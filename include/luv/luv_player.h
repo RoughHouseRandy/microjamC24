@@ -41,6 +41,8 @@ namespace luv {
         bn::sprite_animate_action<4> _sprite_action;
         //the pixels the player moves
         bn::fixed _speed;
+        bn::size _size;
+        bn::rect _bounding_box;
 
         /**
          * Reads D-pad movement to move the player
