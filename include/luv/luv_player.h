@@ -7,7 +7,7 @@
 
 namespace luv {
     // the bounds of the screen
-    class player {
+    class luv_player {
         static constexpr int MAX_X = bn::display::width() / 2;
         static constexpr int MIN_X = - bn::display::width() / 2;
         static constexpr int MAX_Y = bn::display::height() / 2;
@@ -20,7 +20,7 @@ namespace luv {
          * @param starting_position the location to spawn the player
          * @param speed the pixels/frame the player moves in each direction.
          */
-        player(bn::fixed_point starting_position, bn::fixed speed);
+        luv_player(bn::fixed_point starting_position, bn::fixed speed);
 
         /**
          * reads keypad inputs to move the character
