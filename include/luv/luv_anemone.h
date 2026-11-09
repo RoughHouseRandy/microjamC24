@@ -14,8 +14,6 @@ namespace luv {
 
         /**
          * Anemone constructor
-         * @param _pos_x the starting x position
-         * @param _pos_y the starting y position
          */
         public:
         bn::fixed _pos_x;
