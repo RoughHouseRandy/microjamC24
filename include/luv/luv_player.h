@@ -4,14 +4,15 @@
 #include <bn_sprite_ptr.h>
 #include <bn_sprite_animate_actions.h>
 #include <bn_display.h>
+#include "luv/luv_methods.h"
 
 namespace luv {
     // the bounds of the screen
     class luv_player {
-        static constexpr int MAX_X = bn::display::width() / 2;
-        static constexpr int MIN_X = - bn::display::width() / 2;
-        static constexpr int MAX_Y = bn::display::height() / 2;
-        static constexpr int MIN_Y = - bn::display::height() / 2;
+        // static constexpr int MAX_X = bn::display::width() / 2;
+        // static constexpr int MIN_X = - bn::display::width() / 2;
+        // static constexpr int MAX_Y = bn::display::height() / 2;
+        // static constexpr int MIN_Y = - bn::display::height() / 2;
 
         public:
         /**

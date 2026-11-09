@@ -20,6 +20,11 @@ namespace luv {
         return random_y;
     }
 
+    bn::fixed generate_random_anemone_y() {
+        bn::fixed random_y = seed.get_fixed(0, MAX_Y);
+        return random_y;
+    }
+
     //Methods to generate bounding box
     bn::rect generate_bounding_box(bn::sprite_ptr sprite, bn::size box_size) {
         return bn::rect(sprite.x().round_integer(),

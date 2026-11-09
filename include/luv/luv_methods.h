@@ -1,3 +1,5 @@
+#pragma once
+
 #include <bn_rect.h>
 #include <bn_fixed.h>
 #include <bn_random.h>
@@ -22,6 +24,8 @@ namespace luv {
     //Method to generate random y coordinate
     bn::fixed generate_random_y();
 
+    bn::fixed generate_random_anemone_y();
+    
     //Methods to generate bounding box
     bn::rect generate_bounding_box(bn::sprite_ptr sprite, bn::size box_size);
 }
