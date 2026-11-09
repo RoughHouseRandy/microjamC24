@@ -1,5 +1,8 @@
 #pragma once
+
 #include "mj_game.h"
+#include "luv/luv_player.h"
+#include <bn_regular_bg_ptr.h>
 
 // Create a namespace for Hide and Sea-k Game.
 namespace luv
@@ -58,6 +61,10 @@ namespace luv
          * @param data information about the game. RNG, number of frames left, etc.
          */
         void fade_out(const mj::game_data& data) override;
-        
+    private:
+
+    luv_player _player;
+    bn::regular_bg_ptr _background;
+    
     };
 };

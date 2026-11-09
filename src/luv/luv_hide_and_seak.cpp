@@ -1,5 +1,6 @@
 #include "luv_hide_and_seak.h"
 #include "mj/mj_game_list.h"
+#include "bn_regular_bg_items_seafloor.h"
 
 // String arrays for the credits can go in an anonymous namespace
 namespace
@@ -20,7 +21,10 @@ MJ_GAME_LIST_ADD_SFX_CREDITS(sfx_credits)
 namespace luv
 {
     luv_hide_and_seak::luv_hide_and_seak([[maybe_unused]] int completed_games, [[maybe_unused]] const mj::game_data &data) :
-    mj::game("luv"){}
+    mj::game("luv"),
+    _player({20,20}, 2),
+    _background(bn::regular_bg_items::seafloor.create_bg(0,0))
+    {}
 
     bn::string<16> luv_hide_and_seak::title() const {
         return "Hide and Fast!";
