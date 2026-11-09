@@ -1,6 +1,7 @@
 #include "luv_hide_and_seak.h"
 #include "mj/mj_game_list.h"
 #include "bn_regular_bg_items_seafloor.h"
+#include "luv/luv_methods.h"
 
 // String arrays for the credits can go in an anonymous namespace
 namespace
