@@ -20,6 +20,7 @@ namespace luv {
         return random_y;
     }
 
+    //Method to generate a random anemone position
     bn::fixed generate_random_anemone_y() {
         bn::fixed random_y = seed.get_fixed(0, MAX_Y);
         return random_y;

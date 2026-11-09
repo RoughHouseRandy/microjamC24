@@ -28,6 +28,12 @@ namespace luv {
          */
         void update();
 
+        //Get the player bounding box
+        bn::rect get_bounding_box();
+
+        //Set the player bounding box
+        void set_bounding_box(bn::sprite_ptr _player_sprite, bn::size _player_size);
+
         /**
          * Returns whether the player has found a hiding spot
          * 

@@ -3,7 +3,6 @@
 #include "mj_game.h"
 #include "luv/luv_player.h"
 #include "luv/luv_anemone.h"
-#include "luv/luv_methods.h"
 #include <bn_regular_bg_ptr.h>
 
 // Create a namespace for Hide and Sea-k Game.

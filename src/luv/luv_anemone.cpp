@@ -8,4 +8,9 @@ namespace luv {
     _bounding_box(generate_bounding_box(_sprite, _size)) {
 
     }
+    
+    //Get the player bounding box
+     bn::rect luv_anemone::get_bounding_box() {
+        return _bounding_box;
+    };
 }
