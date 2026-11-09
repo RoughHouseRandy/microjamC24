@@ -38,7 +38,7 @@ namespace luv
         {
             _sprite.set_y(_sprite.y() - _speed);
         }
-        if (bn::keypad::down_held)
+        if (bn::keypad::down_held())
         {
             _sprite.set_y(_sprite.y() + _speed);
         }
