@@ -87,6 +87,6 @@ namespace luv
 
     bool luv_player::found_hiding_spot() const
     {
-        return (_sprite.x() == 40 && _sprite.y() == 40);
+        return true;
     }
 }
