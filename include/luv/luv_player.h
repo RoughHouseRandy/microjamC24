@@ -40,7 +40,7 @@ namespace luv {
          * 
          * @return true if the player has found a succesful hiding spot, false if not. 
          */
-        bool found_hiding_spot(luv::luv_anemone& _anemone) const;
+        bool found_hiding_spot() const;
 
     private:
      //sprite to display the characters

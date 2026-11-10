@@ -41,18 +41,24 @@ namespace luv
 
     mj::game_result luv_hide_and_seak::play([[maybe_unused]] const mj::game_data &data)
     {
-
+        mj::game_result result_win(victory());
+        mj::game_result result_lose(false);
         _player.update();
-        if (_player.get_bounding_box().intersects(_anemone.get_bounding_box())) {
+        if (_player.get_bounding_box().intersects(_anemone.get_bounding_box()))
+        {
             BN_LOG("Contact!");
+            return result_win;
+            // victory();
         }
-        mj::game_result result(victory(), false);
-        return result;
+        else
+        {
+            return result_lose;
+        }
     }
 
     bool luv_hide_and_seak::victory() const
     {
-            return _player.found_hiding_spot();
+        return _player.found_hiding_spot();
     }
 
     void luv_hide_and_seak::fade_in([[maybe_unused]] const mj::game_data &data)
