@@ -5,6 +5,7 @@
 #include <bn_sprite_animate_actions.h>
 #include <bn_display.h>
 #include "luv/luv_methods.h"
+#include "luv/luv_anemone.h"
 
 namespace luv {
     // the bounds of the screen
@@ -39,7 +40,7 @@ namespace luv {
          * 
          * @return true if the player has found a succesful hiding spot, false if not. 
          */
-        bool found_hiding_spot() const;
+        bool found_hiding_spot(luv::luv_anemone& _anemone) const;
 
     private:
      //sprite to display the characters
@@ -49,7 +50,6 @@ namespace luv {
         bn::fixed _speed;
         bn::size _size;
         bn::rect _bounding_box;
-
         /**
          * Reads D-pad movement to move the player
          */

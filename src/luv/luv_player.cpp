@@ -85,8 +85,8 @@ namespace luv
         _sprite_action.update();
     }
 
-    bool luv_player::found_hiding_spot() const
+    bool luv_player::found_hiding_spot(luv::luv_anemone &_anemone) const
     {
-        return (_sprite.x() == 40 && _sprite.y() == 40);
+        return _player.intersects(_anemone.get_bounding_box());
     }
 }

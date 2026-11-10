@@ -52,7 +52,7 @@ namespace luv
 
     bool luv_hide_and_seak::victory() const
     {
-        return false;
+            return _player.found_hiding_spot();
     }
 
     void luv_hide_and_seak::fade_in([[maybe_unused]] const mj::game_data &data)

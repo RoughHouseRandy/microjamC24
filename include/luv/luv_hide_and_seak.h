@@ -62,7 +62,6 @@ namespace luv
          * @param data information about the game. RNG, number of frames left, etc.
          */
         void fade_out(const mj::game_data &data) override;
-
     private:
         luv_player _player;
         luv_anemone _anemone;
