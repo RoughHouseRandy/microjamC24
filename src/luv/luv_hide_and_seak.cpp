@@ -52,6 +52,7 @@ namespace luv
         }
         else
         {
+            BN_LOG("lose");
             return result_lose;
         }
     }
