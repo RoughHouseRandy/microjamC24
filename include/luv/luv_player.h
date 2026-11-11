@@ -35,12 +35,8 @@ namespace luv {
         //Set the player bounding box
         void set_bounding_box(bn::sprite_ptr _player_sprite, bn::size _player_size);
 
-        /**
-         * Returns whether the player has found a hiding spot
-         * 
-         * @return true if the player has found a succesful hiding spot, false if not. 
-         */
-        bool found_hiding_spot() const;
+        //Get the player
+        luv_player get_player();
 
     private:
      //sprite to display the characters

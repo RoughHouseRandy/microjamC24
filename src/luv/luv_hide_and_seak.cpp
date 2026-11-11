@@ -41,24 +41,35 @@ namespace luv
 
     mj::game_result luv_hide_and_seak::play([[maybe_unused]] const mj::game_data &data)
     {
-        mj::game_result result_win(victory());
-        mj::game_result result_lose(false);
+        mj::game_result result(victory());
         _player.update();
-        if (_player.get_bounding_box().intersects(_anemone.get_bounding_box()))
-        {
-            BN_LOG("Contact!");
-            return result_win;
-            // victory();
-        }
-        else
-        {
-            return result_lose;
-        }
+        return result;
+  
     }
 
+    // Get the player
+    luv_player luv_hide_and_seak::get_player() const
+    {
+        return _player;
+    };
+
+    // Get the anemone
+    luv_anemone luv_hide_and_seak::get_anemone() const
+    {
+        return _anemone;
+    };
+
+    //Method to test if the player has beaten the minigame or not.
     bool luv_hide_and_seak::victory() const
     {
-        return _player.found_hiding_spot();
+        //IF the player reaches a safe anemone, return true
+        if (get_player().get_bounding_box().intersects(get_anemone().get_bounding_box()))
+        {
+            BN_LOG("Contact!");
+            return true;
+        }
+        //Else, return false.
+        return false;
     }
 
     void luv_hide_and_seak::fade_in([[maybe_unused]] const mj::game_data &data)

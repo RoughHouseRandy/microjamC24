@@ -49,7 +49,7 @@ namespace luv
          * In this game, the player achieves victory if they can reach a
          * safe anemone hideout before the timer runs out.
          */
-        bool victory() const override;
+        bool victory() const;
 
         /**
          * Method that is called repeatedly as the game fades in.
@@ -62,6 +62,13 @@ namespace luv
          * @param data information about the game. RNG, number of frames left, etc.
          */
         void fade_out(const mj::game_data &data) override;
+
+        //Get the player
+        luv_player get_player() const;
+
+        //Get the anemone
+        luv_anemone get_anemone() const;
+
     private:
         luv_player _player;
         luv_anemone _anemone;
