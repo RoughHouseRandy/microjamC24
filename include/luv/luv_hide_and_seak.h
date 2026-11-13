@@ -41,6 +41,9 @@ namespace luv
          */
         mj::game_result play(const mj::game_data &data) override;
 
+        // bn::fixed create_x_spawn(const mj::game_data &data) override;
+        
+        // bn::fixed create_y_spawn(const mj::game_data &data) override;
         /**
          * Method that returns whether or not the player has won this microgame.
          * True - Victory.

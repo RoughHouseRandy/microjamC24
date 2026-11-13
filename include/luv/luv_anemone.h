@@ -18,7 +18,7 @@ namespace luv
          * Anemone constructor
          */
     public:
-        luv_anemone();
+        luv_anemone(bn::fixed_point spawn);
 
         bn::rect get_bounding_box();
 

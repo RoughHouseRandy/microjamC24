@@ -24,7 +24,7 @@ namespace luv
 {
     luv_hide_and_seak::luv_hide_and_seak([[maybe_unused]] int completed_games, [[maybe_unused]] const mj::game_data &data) : mj::game("luv"),
         _player({20, 20}, 2),
-        _anemone(),
+        _anemone({data.random.get_fixed(MIN_X,MAX_X), data.random.get_fixed(0,MAX_Y)}),
         _background(bn::regular_bg_items::luv_seafloor.create_bg(0, 0))
     {
     }
@@ -46,6 +46,16 @@ namespace luv
         return result;
   
     }
+
+    // bn::fixed luv_hide_and_seak::create_x_spawn([[maybe_unused]] const mj::game_data &data){
+    //     bn::fixed x = data.random.get_fixed(MIN_X, MAX_X);
+    //     return x;
+    // };
+
+    // bn::fixed luv_hide_and_seak::create_y_spawn([[maybe_unused]] const mj::game_data &data){
+    //     bn::fixed y = data.random.get_fixed(0, MAX_Y);
+    //     return y;
+    // };
 
     // Get the player
     luv_player luv_hide_and_seak::get_player() const
