@@ -1,7 +1,7 @@
 #pragma once
 #include <bn_rect.h>
-#include <bn_fixed.h>
-#include <bn_random.h>
+// #include <bn_fixed.h>
+// #include <bn_random.h>
 #include <bn_size.h>
 #include <bn_display.h>
 #include <bn_sprite_ptr.h>
@@ -16,14 +16,6 @@ namespace luv {
     static constexpr int MIN_X = - bn::display::width() / 2;
     static constexpr int MAX_Y = bn::display::height() / 2;
     static constexpr int MIN_Y = - bn::display::height() / 2;
-
-    //Method to generate random x  coordinate
-    bn::fixed generate_random_x();
-
-    //Method to generate random y coordinate
-    bn::fixed generate_random_y();
-
-    bn::fixed generate_random_anemone_y();
 
     //Methods to generate bounding box
     bn::rect generate_bounding_box(bn::sprite_ptr sprite, bn::size box_size);
