@@ -17,14 +17,6 @@ namespace luv {
     static constexpr int MAX_Y = bn::display::height() / 2;
     static constexpr int MIN_Y = - bn::display::height() / 2;
 
-    // //Method to generate random x  coordinate
-    // bn::fixed generate_random_x();
-
-    // //Method to generate random y coordinate
-    // bn::fixed generate_random_y();
-
-    // bn::fixed generate_random_anemone_y();
-
     //Methods to generate bounding box
     bn::rect generate_bounding_box(bn::sprite_ptr sprite, bn::size box_size);
 }
