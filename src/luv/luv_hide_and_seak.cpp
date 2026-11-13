@@ -31,7 +31,7 @@ namespace luv
 
     bn::string<16> luv_hide_and_seak::title() const
     {
-        return "Hide and Fast!";
+        return "Hide!";
     }
 
     int luv_hide_and_seak::total_frames() const
@@ -65,7 +65,6 @@ namespace luv
         //IF the player reaches a safe anemone, return true
         if (get_player().get_bounding_box().intersects(get_anemone().get_bounding_box()))
         {
-            BN_LOG("Contact!");
             return true;
         }
         //Else, return false.

@@ -8,24 +8,25 @@
 #include <bn_size.h>
 #include "luv/luv_methods.h"
 
-//Create a namespace to ensure all variables within are scoped to the instance.
-namespace luv {
-    class luv_anemone {
+// Create a namespace to ensure all variables within are scoped to the instance.
+namespace luv
+{
+    class luv_anemone
+    {
 
         /**
          * Anemone constructor
          */
-        public:
-
+    public:
         luv_anemone();
 
         bn::rect get_bounding_box();
 
-        private:
-            bn::fixed _pos_x;
-            bn::fixed _pos_y;
-            bn::sprite_ptr _sprite;
-            bn::size _size;
-            bn::rect _bounding_box; //Bounding box of the anemone
+    private:
+        bn::fixed _pos_x;
+        bn::fixed _pos_y;
+        bn::sprite_ptr _sprite;
+        bn::size _size;
+        bn::rect _bounding_box; // Bounding box of the anemone
     };
 }
