@@ -1,6 +1,6 @@
 #include "luv_hide_and_seak.h"
 #include "mj/mj_game_list.h"
-#include "bn_regular_bg_items_seafloor.h"
+#include "bn_regular_bg_items_luv_seafloor.h"
 #include "luv/luv_methods.h"
 #include "bn_log.h"
 
@@ -8,7 +8,7 @@
 namespace
 {
     constexpr bn::string_view code_credits[] = {"Corey Brown", "Russell Fisher"};
-    constexpr bn::string_view graphics_credits[] = {"Kenney Game Assets"};
+    constexpr bn::string_view graphics_credits[] = {""};
     constexpr bn::string_view sfx_credits[] = {""};
     constexpr bn::string_view music_credits[] = {""};
 }
@@ -23,15 +23,15 @@ MJ_GAME_LIST_ADD_SFX_CREDITS(sfx_credits)
 namespace luv
 {
     luv_hide_and_seak::luv_hide_and_seak([[maybe_unused]] int completed_games, [[maybe_unused]] const mj::game_data &data) : mj::game("luv"),
-                                                                                                                             _player({20, 20}, 2),
-                                                                                                                             _anemone(),
-                                                                                                                             _background(bn::regular_bg_items::seafloor.create_bg(0, 0))
+        _player({20, 20}, 2),
+        _anemone(),
+        _background(bn::regular_bg_items::luv_seafloor.create_bg(0, 0))
     {
     }
 
     bn::string<16> luv_hide_and_seak::title() const
     {
-        return "Hide and Fast!";
+        return "Hide!";
     }
 
     int luv_hide_and_seak::total_frames() const
@@ -65,7 +65,6 @@ namespace luv
         //IF the player reaches a safe anemone, return true
         if (get_player().get_bounding_box().intersects(get_anemone().get_bounding_box()))
         {
-            BN_LOG("Contact!");
             return true;
         }
         //Else, return false.
