@@ -24,7 +24,10 @@ namespace luv
 {
     luv_hide_and_seak::luv_hide_and_seak([[maybe_unused]] int completed_games, [[maybe_unused]] const mj::game_data &data) : mj::game("luv"),
         _player({20, 20}, 2),
-        _anemone({data.random.get_fixed(MIN_X,MAX_X), data.random.get_fixed(0,MAX_Y)}),
+        _anemone({data.random.get_fixed(MIN_X,MAX_X), 
+            data.random.get_fixed(0,MAX_Y)}),
+        _trap({data.random.get_fixed(MIN_X,MAX_X), 
+            data.random.get_fixed(0,MAX_Y)}),
         _background(bn::regular_bg_items::luv_seafloor.create_bg(0, 0))
     {
     }
@@ -57,6 +60,12 @@ namespace luv
     luv_anemone luv_hide_and_seak::get_anemone() const
     {
         return _anemone;
+    };
+
+        // Get the anemone
+    luv_trap luv_hide_and_seak::get_trap() const
+    {
+        return _trap;
     };
 
     //Method to test if the player has beaten the minigame or not.

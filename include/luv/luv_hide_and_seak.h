@@ -3,6 +3,7 @@
 #include "mj_game.h"
 #include "luv/luv_player.h"
 #include "luv/luv_anemone.h"
+#include "luv/luv_trap.h"
 #include <bn_regular_bg_ptr.h>
 
 // Create a namespace for Hide and Sea-k Game.
@@ -69,9 +70,13 @@ namespace luv
         //Get the anemone
         luv_anemone get_anemone() const;
 
+        //Get the trap anemone
+        luv_trap get_trap() const;
+
     private:
         luv_player _player;
         luv_anemone _anemone;
+        luv_trap _trap;
         bn::regular_bg_ptr _background;
     };
 };
