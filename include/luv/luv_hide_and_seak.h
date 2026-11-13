@@ -78,5 +78,7 @@ namespace luv
         luv_anemone _anemone;
         luv_trap _trap;
         bn::regular_bg_ptr _background;
+        bn::vector<luv_trap, difficulty> _traps; 
+        int _recommended_trap_spawn(mj::difficulty_level difficulty);
     };
 };

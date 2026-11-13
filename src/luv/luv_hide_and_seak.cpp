@@ -28,6 +28,7 @@ namespace luv
             data.random.get_fixed(0,MAX_Y)}),
         _trap({data.random.get_fixed(MIN_X,MAX_X), 
             data.random.get_fixed(0,MAX_Y)}),
+        _traps,    
         _background(bn::regular_bg_items::luv_seafloor.create_bg(0, 0))
     {
     }
@@ -78,6 +79,15 @@ namespace luv
         }
         //Else, return false.
         return false;
+    }
+
+    int luv_hide_and_seak::recommended_trap_spawn(mj::difficulty_level difficulty){
+        if(difficulty == mj::difficulty_level::EASY){
+            return 2;
+        } else if (difficulty == mj::difficulty_level::NORMAL){
+            return 4;
+        } 
+        return 6;
     }
 
     void luv_hide_and_seak::fade_in([[maybe_unused]] const mj::game_data &data)
