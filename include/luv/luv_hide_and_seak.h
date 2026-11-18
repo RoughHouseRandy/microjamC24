@@ -65,17 +65,17 @@ namespace luv
          */
         void fade_out(const mj::game_data &data) override;
 
-        //Get the player
-        luv_player get_player() const;
-
-        //Get the anemone
-        luv_anemone get_anemone() const;
-
         //Returns number of traps to spawn based on level of difficulty
         int _recommended_trap_spawn(mj::difficulty_level difficulty);
 
+        bool reached_safety(luv_player _player, luv_anemone _anemone) const;
+
     private:
         static constexpr int MAX_TRAPS = 6;
+        static constexpr bn::fixed_point PLAYER_SPAWN = {20, -30};
+        static constexpr bn::fixed PLAYER_SPEED = 2;
+        static constexpr bn::fixed SEA_FLOOR_MIN = 0;
+        static constexpr bn::fixed SEA_FLOOR_MAX = MAX_Y - 20;
         luv_player _player;
         luv_anemone _anemone;
         bn::regular_bg_ptr _background;

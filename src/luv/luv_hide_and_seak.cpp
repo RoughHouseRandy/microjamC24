@@ -23,13 +23,13 @@ MJ_GAME_LIST_ADD_SFX_CREDITS(sfx_credits)
 namespace luv
 {
     luv_hide_and_seak::luv_hide_and_seak([[maybe_unused]] int completed_games, [[maybe_unused]] const mj::game_data &data) : mj::game("luv"),
-        _player({20, -10}, 2),
+        _player(PLAYER_SPAWN,PLAYER_SPEED),
         _anemone({data.random.get_fixed(MIN_X,MAX_X), 
-            data.random.get_fixed(0,MAX_Y)}),  
+            data.random.get_fixed(SEA_FLOOR_MIN,SEA_FLOOR_MAX)}),  
         _background(bn::regular_bg_items::luv_seafloor.create_bg(0, 0))
     {
         for(int i = 0; i < _recommended_trap_spawn(recommended_difficulty_level(completed_games,data)); i++){
-            _traps.push_back(luv_trap({data.random.get_fixed(MIN_X,MAX_X),data.random.get_fixed(0,MAX_Y)}));
+            _traps.push_back(luv_trap({data.random.get_fixed(MIN_X,MAX_X),data.random.get_fixed(SEA_FLOOR_MIN,SEA_FLOOR_MAX)}));
         }
     }
 
@@ -45,11 +45,11 @@ namespace luv
 
     mj::game_result luv_hide_and_seak::play([[maybe_unused]] const mj::game_data &data)
     {
-        bool lose = false;
+         bool lose = false;
         mj::game_result result(victory(), false);
         _player.update();
         for(luv_trap _trap_single : _traps){
-            if (get_player().get_bounding_box().intersects(_trap_single.get_bounding_box()))
+            if (_player.get_bounding_box().intersects(_trap_single.get_bounding_box()))
             {
                 lose = true;
                return mj::game_result(lose,false);
@@ -60,37 +60,23 @@ namespace luv
   
     };
 
-    // Get the player
-    luv_player luv_hide_and_seak::get_player() const
-    {
-        return _player;
-    };
-
-    // Get the anemone
-    luv_anemone luv_hide_and_seak::get_anemone() const
-    {
-        return _anemone;
-    };
-
     //Method to test if the player has beaten the minigame or not.
     bool luv_hide_and_seak::victory() const
     {
-        //If the player reaches a safe anemone, return true
-        if (get_player().get_bounding_box().intersects(get_anemone().get_bounding_box()))
-        {
-            return true;
-        }
-        //Else, return false.
-        return false;
+        return reached_safety(_player, _anemone);
     }
 
     int luv_hide_and_seak::_recommended_trap_spawn(mj::difficulty_level difficulty){
         if(difficulty == mj::difficulty_level::EASY){
-            return 2;
+            return 0;
         } else if (difficulty == mj::difficulty_level::NORMAL){
             return 4;
         } 
         return 6;
+    }
+
+    bool luv_hide_and_seak::reached_safety(luv_player player, luv_anemone anemone) const{
+        return player.get_bounding_box().intersects(anemone.get_bounding_box());
     }
 
     void luv_hide_and_seak::fade_in([[maybe_unused]] const mj::game_data &data)

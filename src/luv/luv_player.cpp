@@ -43,11 +43,6 @@ namespace luv
         _bounding_box = generate_bounding_box(_player_sprite, _player_size);
     };
 
-    //Get the player speed
-    bn::fixed luv_player::get_speed() {
-        return _speed;
-    };
-
     //Set the player speed
     void luv_player::set_speed(bn::fixed _player_speed) {
         _speed = _player_speed;

@@ -27,9 +27,6 @@ namespace luv {
         //Get the player bounding box
         bn::rect get_bounding_box();
 
-        //Get the player speed
-        bn::fixed get_speed();
-
         //Set the player speed
         void set_speed(bn::fixed _player_speed);
 

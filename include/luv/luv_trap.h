@@ -22,8 +22,7 @@ namespace luv
         bn::rect get_bounding_box();
 
     private:
-        bn::fixed _pos_x;
-        bn::fixed _pos_y;
+        static constexpr int ANEMONE_SIZE = 16;
         bn::sprite_ptr _sprite;
         bn::size _size;
         bn::rect _bounding_box; // Bounding box of the trap anemone
