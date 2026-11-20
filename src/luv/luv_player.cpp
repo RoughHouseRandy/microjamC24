@@ -14,7 +14,7 @@ namespace luv
             _sprite, 
             10, 
             bn::sprite_items::luv_fish.tiles_item(), 
-            0, 1, 2, 3, 4, 5, 6, 7, 8, 9)),
+            0, 1, 2, 3)),
         _speed(speed),
         _size({16, 16}),
         _bounding_box(generate_bounding_box(_sprite, _size))
@@ -24,7 +24,7 @@ namespace luv
     void luv_player::update()
     {
         _update_position();
-
+        
         if (bn::keypad::any_held())
         {
             _update_animation();
@@ -68,6 +68,7 @@ namespace luv
         if (bn::keypad::down_held())
         {
             _sprite.set_y(_sprite.y() + _speed);
+            
         }
 
         //Update the bounding box
@@ -80,21 +81,14 @@ namespace luv
         if (bn::keypad::left_held())
         {
             _sprite.set_horizontal_flip(true);
-            _sprite_action = bn::create_sprite_animate_action_forever(_sprite, 10, bn::sprite_items::luv_fish.tiles_item(), 0, 1, 2, 3);
+            _sprite_action.update();
         }
-        if (bn::keypad::right_held())
+        else  if (bn::keypad::right_held())
         {
             _sprite.set_horizontal_flip(false);
-            _sprite_action = bn::create_sprite_animate_action_forever(_sprite, 10, bn::sprite_items::luv_fish.tiles_item(), 4, 5, 6, 7);
+            _sprite_action.update();
+        } else {
+            _sprite_action.update();
         }
-        if (bn::keypad::up_held())
-        {
-            _sprite_action = bn::create_sprite_animate_action_forever(_sprite, 10, bn::sprite_items::luv_fish.tiles_item(), 0, 1, 2, 3);
-        }
-        if (bn::keypad::down_held())
-        {
-            _sprite_action = bn::create_sprite_animate_action_forever(_sprite, 10, bn::sprite_items::luv_fish.tiles_item(), 0, 1, 2, 3);
-        }
-        _sprite_action.update();
     }
 }
