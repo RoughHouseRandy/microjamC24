@@ -25,7 +25,7 @@ namespace luv
         static constexpr int ANEMONE_SIZE = 16;
         bn::sprite_ptr _sprite;
         bn::size _size;
-        // bn::sprite_animate_action<8> _sprite_action;
         bn::rect _bounding_box; // Bounding box of the trap anemone
+        bn::sprite_animate_action<8> _sprite_action;
     };
 }

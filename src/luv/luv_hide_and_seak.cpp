@@ -23,13 +23,14 @@ MJ_GAME_LIST_ADD_SFX_CREDITS(sfx_credits)
 namespace luv
 {
     luv_hide_and_seak::luv_hide_and_seak([[maybe_unused]] int completed_games, [[maybe_unused]] const mj::game_data &data) : mj::game("luv"),
-        _player(PLAYER_SPAWN,PLAYER_SPEED),
-        _anemone({data.random.get_fixed(MIN_X,MAX_X), 
-            data.random.get_fixed(SEA_FLOOR_MIN,SEA_FLOOR_MAX)}),  
-        _background(bn::regular_bg_items::luv_seafloor.create_bg(0, 0))
+                                                                                                                             _player(PLAYER_SPAWN, PLAYER_SPEED),
+                                                                                                                             _anemone({data.random.get_fixed(MIN_X, MAX_X),
+                                                                                                                                       data.random.get_fixed(SEA_FLOOR_MIN, SEA_FLOOR_MAX)}),
+                                                                                                                             _background(bn::regular_bg_items::luv_seafloor.create_bg(0, 0))
     {
-        for(int i = 0; i < _recommended_trap_spawn(recommended_difficulty_level(completed_games,data)); i++){
-            _traps.push_back(luv_trap({data.random.get_fixed(MIN_X,MAX_X),data.random.get_fixed(SEA_FLOOR_MIN,SEA_FLOOR_MAX)}));
+        for (int i = 0; i < _recommended_trap_spawn(recommended_difficulty_level(completed_games, data)); i++)
+        {
+            _traps.push_back(luv_trap({data.random.get_fixed(MIN_X, MAX_X), data.random.get_fixed(SEA_FLOOR_MIN, SEA_FLOOR_MAX)}));
         }
     }
 
@@ -45,38 +46,44 @@ namespace luv
 
     mj::game_result luv_hide_and_seak::play([[maybe_unused]] const mj::game_data &data)
     {
-         bool lose = false;
+        bool lose = false;
         mj::game_result result(victory(), false);
         _player.update();
         _player._update_animation();
-        for(luv_trap _trap_single : _traps){
+        for (luv_trap& _trap_single : _traps)
+        {   /*Call the update animation function for each jellyfish */
+            _trap_single.update_trap_animation(); 
             if (_player.get_bounding_box().intersects(_trap_single.get_bounding_box()))
             {
                 lose = true;
-               return mj::game_result(lose,false);
+                return mj::game_result(lose, false);
             }
         }
-        
+
         return result;
-  
     };
 
-    //Method to test if the player has beaten the minigame or not.
+    // Method to test if the player has beaten the minigame or not.
     bool luv_hide_and_seak::victory() const
     {
         return reached_safety(_player, _anemone);
     }
 
-    int luv_hide_and_seak::_recommended_trap_spawn(mj::difficulty_level difficulty){
-        if(difficulty == mj::difficulty_level::EASY){
+    int luv_hide_and_seak::_recommended_trap_spawn(mj::difficulty_level difficulty)
+    {
+        if (difficulty == mj::difficulty_level::EASY)
+        {
             return 0;
-        } else if (difficulty == mj::difficulty_level::NORMAL){
+        }
+        else if (difficulty == mj::difficulty_level::NORMAL)
+        {
             return 4;
-        } 
+        }
         return 6;
     }
 
-    bool luv_hide_and_seak::reached_safety(luv_player player, luv_anemone anemone) const{
+    bool luv_hide_and_seak::reached_safety(luv_player player, luv_anemone anemone) const
+    {
         return player.get_bounding_box().intersects(anemone.get_bounding_box());
     }
 
