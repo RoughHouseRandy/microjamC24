@@ -26,4 +26,14 @@ namespace luv {
     void luv::luv_trap::update_trap_animation() {
         _sprite_action.update();
     };
+
+    //Move the jellyfish up
+    // void luv::luv_trap::float_up() {
+    //     _sprite.set_y(_sprite.y() + 2);
+    // };
+    
+    //Move the jellyfish down
+    // void luv::luv_trap::float_down() {
+    //     _sprite.set_y(_sprite.y() - 2);
+    // };
 }
