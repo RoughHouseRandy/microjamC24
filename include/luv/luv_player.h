@@ -35,11 +35,11 @@ namespace luv {
 
         //Get the player
         luv_player get_player();
-
+        void _update_animation();
     private:
      //sprite to display the characters
         bn::sprite_ptr _sprite;
-        bn::sprite_animate_action<4> _sprite_action;
+        bn::sprite_animate_action<10> _sprite_action;
         //the pixels the player moves
         bn::fixed _speed;
         bn::size _size;
@@ -52,7 +52,7 @@ namespace luv {
         /**
          * reads the player dpad movement and updates the sprite animation.
          */
-        void _update_animation();
+
     };
      
 }

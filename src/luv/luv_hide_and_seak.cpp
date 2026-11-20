@@ -48,6 +48,7 @@ namespace luv
          bool lose = false;
         mj::game_result result(victory(), false);
         _player.update();
+        _player._update_animation();
         for(luv_trap _trap_single : _traps){
             if (_player.get_bounding_box().intersects(_trap_single.get_bounding_box()))
             {

@@ -12,9 +12,9 @@ namespace luv
     : _sprite(bn::sprite_items::luv_fish.create_sprite(starting_position)),
         _sprite_action(bn::create_sprite_animate_action_forever(
             _sprite, 
-            4, 
+            10, 
             bn::sprite_items::luv_fish.tiles_item(), 
-            0, 1, 2, 3)),
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9)),
         _speed(speed),
         _size({16, 16}),
         _bounding_box(generate_bounding_box(_sprite, _size))
@@ -76,21 +76,22 @@ namespace luv
 
     void luv::luv_player::_update_animation()
     {
+        
         if (bn::keypad::left_held())
         {
-            _sprite_action = bn::create_sprite_animate_action_forever(_sprite, 4, bn::sprite_items::luv_fish.tiles_item(), 0, 1, 2, 3);
+            _sprite_action = bn::create_sprite_animate_action_forever(_sprite, 10, bn::sprite_items::luv_fish.tiles_item(), 0, 1, 2, 3);
         }
         if (bn::keypad::right_held())
         {
-            _sprite_action = bn::create_sprite_animate_action_forever(_sprite, 4, bn::sprite_items::luv_fish.tiles_item(), 0, 1, 2, 3);
+            _sprite_action = bn::create_sprite_animate_action_forever(_sprite, 10, bn::sprite_items::luv_fish.tiles_item(), 4, 5, 6, 7);
         }
         if (bn::keypad::up_held())
         {
-            _sprite_action = bn::create_sprite_animate_action_forever(_sprite, 4, bn::sprite_items::luv_fish.tiles_item(), 0, 1, 2, 3);
+            _sprite_action = bn::create_sprite_animate_action_forever(_sprite, 10, bn::sprite_items::luv_fish.tiles_item(), 0, 1, 2, 3);
         }
         if (bn::keypad::down_held())
         {
-            _sprite_action = bn::create_sprite_animate_action_forever(_sprite, 4, bn::sprite_items::luv_fish.tiles_item(), 0, 1, 2, 3);
+            _sprite_action = bn::create_sprite_animate_action_forever(_sprite, 10, bn::sprite_items::luv_fish.tiles_item(), 0, 1, 2, 3);
         }
         _sprite_action.update();
     }
