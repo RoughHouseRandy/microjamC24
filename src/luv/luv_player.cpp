@@ -79,10 +79,12 @@ namespace luv
         
         if (bn::keypad::left_held())
         {
+            _sprite.set_horizontal_flip(true);
             _sprite_action = bn::create_sprite_animate_action_forever(_sprite, 10, bn::sprite_items::luv_fish.tiles_item(), 0, 1, 2, 3);
         }
         if (bn::keypad::right_held())
         {
+            _sprite.set_horizontal_flip(false);
             _sprite_action = bn::create_sprite_animate_action_forever(_sprite, 10, bn::sprite_items::luv_fish.tiles_item(), 4, 5, 6, 7);
         }
         if (bn::keypad::up_held())
