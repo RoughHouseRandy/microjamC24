@@ -21,6 +21,12 @@ namespace luv
         //Update the trap's current frame
         void update_trap_animation();
 
+        //Move the jellyfish up
+        // void float_up();
+
+        //Move the jellyfish down
+        // void float_down();
+
     private:
         static constexpr int ANEMONE_SIZE = 16;
         bn::sprite_ptr _sprite;
