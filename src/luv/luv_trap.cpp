@@ -27,16 +27,18 @@ namespace luv {
         _sprite_action.update();
     };
 
-
     // Move the jellyfish up
     void luv::luv_trap::float_up() {
         _sprite.set_y(_sprite.y() - 1.5);
+        _sprite.set_vertical_flip(false);
         _bounding_box = generate_bounding_box(_sprite,_size);
     };
-    
-    // Move the jellyfish down
-    void luv::luv_trap::float_down() {
-        _sprite.set_y(_sprite.y() + 1);
-        _bounding_box = generate_bounding_box(_sprite,_size);
+
+    // Move the jellyfish up
+    void luv::luv_trap::float_down()
+    {
+        _sprite.set_y(_sprite.y() + 1.5);
+        _sprite.set_vertical_flip(true);
+        _bounding_box = generate_bounding_box(_sprite, _size);
     };
 }

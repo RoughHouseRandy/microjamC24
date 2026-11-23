@@ -77,7 +77,6 @@ namespace luv
         static constexpr bn::fixed SEA_FLOOR_MIN = 0;
         static constexpr bn::fixed SEA_FLOOR_MAX = MAX_Y - 20;
         static constexpr int TRAP_UP = 120;
-        static constexpr int TRAP_DOWN = 240;
         luv_player _player;
         luv_anemone _anemone;
         bn::regular_bg_ptr _background;
