@@ -27,24 +27,16 @@ namespace luv {
         _sprite_action.update();
     };
 
-    //Update the float position of the trap
-    void luv::luv_trap::update_float(int seconds) {
-        //If _float is false, move the trap down
-        if (seconds <= 120) {
-            float_down();
-        //If _float is true, move the trap up
-        } else if (seconds > 240) {
-            float_up();
-        }
-    };
 
     // Move the jellyfish up
     void luv::luv_trap::float_up() {
         _sprite.set_y(_sprite.y() - 2);
+        _bounding_box = generate_bounding_box(_sprite,_size);
     };
     
     // Move the jellyfish down
     void luv::luv_trap::float_down() {
         _sprite.set_y(_sprite.y() + 2);
+        _bounding_box = generate_bounding_box(_sprite,_size);
     };
 }
