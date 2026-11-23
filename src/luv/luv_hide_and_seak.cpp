@@ -61,14 +61,15 @@ namespace luv
             } else if(timer > TRAP_UP){
                 _trap_single.float_down();
             }
-    
+
             if (_player.get_bounding_box().intersects(_trap_single.get_bounding_box()))
             {
                 lose = true;
                 return mj::game_result(lose, false);
             }
+
             timer++;
-            if(timer == 240){
+            if(timer == MAX_TIMER){
                 timer = 0;
             }
         }

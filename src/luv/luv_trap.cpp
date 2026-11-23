@@ -34,7 +34,7 @@ namespace luv {
         _bounding_box = generate_bounding_box(_sprite,_size);
     };
 
-    // Move the jellyfish up
+    // Move the jellyfish down
     void luv::luv_trap::float_down()
     {
         _sprite.set_y(_sprite.y() + 1.5);
