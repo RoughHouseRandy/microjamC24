@@ -55,9 +55,9 @@ namespace luv
         for (luv_trap& _trap_single : _traps)
         {   /*Call the update animation function for each jellyfish */
             _trap_single.update_trap_animation(); 
-            if(timer <= 120) {
+            if(timer <= 120 ) {
                 _trap_single.float_up();
-            } else if(timer >= 240){
+            } else if(timer > 120){
                 _trap_single.float_down();
             }
             if (_player.get_bounding_box().intersects(_trap_single.get_bounding_box()))
@@ -66,6 +66,9 @@ namespace luv
                 return mj::game_result(lose, false);
             }
             timer++;
+            if(timer == 240){
+                timer = 0;
+            }
         }
         return result;
     };
