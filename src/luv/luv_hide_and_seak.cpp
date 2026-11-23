@@ -54,7 +54,7 @@ namespace luv
         for (luv_trap& _trap_single : _traps)
         {   /*Call the update animation function for each jellyfish */
             _trap_single.update_trap_animation(); 
-            // _trap_single.float_up();
+            _trap_single.update_float();
             if (_player.get_bounding_box().intersects(_trap_single.get_bounding_box()))
             {
                 lose = true;

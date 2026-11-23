@@ -21,6 +21,9 @@ namespace luv
         //Update the trap's current frame
         void update_trap_animation();
 
+        //Update the float position of the trap
+        void update_float();
+
         //Move the jellyfish up
         void float_up();
 
@@ -33,5 +36,6 @@ namespace luv
         bn::size _size;
         bn::rect _bounding_box; // Bounding box of the trap anemone
         bn::sprite_animate_action<8> _sprite_action;
+        bool _float;
     };
 }
