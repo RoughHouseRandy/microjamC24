@@ -72,10 +72,12 @@ namespace luv
 
     private:
         static constexpr int MAX_TRAPS = 6;
-        static constexpr bn::fixed_point PLAYER_SPAWN = {20, -30};
+        static constexpr bn::fixed_point PLAYER_SPAWN = {20, -60};
         static constexpr bn::fixed PLAYER_SPEED = 2;
         static constexpr bn::fixed SEA_FLOOR_MIN = 0;
         static constexpr bn::fixed SEA_FLOOR_MAX = MAX_Y - 20;
+        static constexpr int TRAP_UP = 120;
+        static constexpr int TRAP_DOWN = 240;
         luv_player _player;
         luv_anemone _anemone;
         bn::regular_bg_ptr _background;
