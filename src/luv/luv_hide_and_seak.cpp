@@ -26,8 +26,8 @@ namespace luv
         _player(PLAYER_SPAWN, PLAYER_SPEED),
         _anemone({data.random.get_fixed(MIN_X, MAX_X),
         data.random.get_fixed(SEA_FLOOR_MIN, SEA_FLOOR_MAX)}),
-        timer(),
-        _background(bn::regular_bg_items::luv_seafloor.create_bg(0, 0))
+        _background(bn::regular_bg_items::luv_seafloor.create_bg(0, 0)),
+        timer()
     {
         for (int i = 0; i < _recommended_trap_spawn(recommended_difficulty_level(completed_games, data)); i++)
         {
@@ -55,14 +55,14 @@ namespace luv
         for (luv_trap& _trap_single : _traps)
         {   /*Call the update animation function for each jellyfish */
             _trap_single.update_trap_animation(); 
-            _trap_single.update_float();
+            _trap_single.update_float(timer);
             if (_player.get_bounding_box().intersects(_trap_single.get_bounding_box()))
             {
                 lose = true;
                 return mj::game_result(lose, false);
             }
+            timer++;
         }
-        timer++;
         return result;
     };
 
