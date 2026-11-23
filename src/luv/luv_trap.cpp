@@ -13,8 +13,7 @@ namespace luv {
         _sprite,
         8,
         bn::sprite_items::luv_jellyfish.tiles_item(),
-        0, 1, 2, 3, 4, 5, 6, 7)),
-    _float(false) {
+        0, 1, 2, 3, 4, 5, 6, 7)) {
 
     }
     
@@ -29,15 +28,13 @@ namespace luv {
     };
 
     //Update the float position of the trap
-    void luv::luv_trap::update_float() {
+    void luv::luv_trap::update_float(int seconds) {
         //If _float is false, move the trap down
-        if (_float == false) {
-            _float = true; //Set _float to true
+        if (seconds <= 120) {
             float_down();
         //If _float is true, move the trap up
-        } else if (_float == true) {
+        } else if (seconds > 240) {
             float_up();
-            _float = false; //Set _float to false
         }
     };
 

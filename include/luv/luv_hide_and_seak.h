@@ -76,10 +76,10 @@ namespace luv
         static constexpr bn::fixed PLAYER_SPEED = 2;
         static constexpr bn::fixed SEA_FLOOR_MIN = 0;
         static constexpr bn::fixed SEA_FLOOR_MAX = MAX_Y - 20;
-        int timer = 0;
         luv_player _player;
         luv_anemone _anemone;
         bn::regular_bg_ptr _background;
         bn::vector<luv_trap, MAX_TRAPS> _traps; 
+        int timer = 0;
     };
 };
