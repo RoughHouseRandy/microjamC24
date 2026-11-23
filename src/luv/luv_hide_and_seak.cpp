@@ -57,9 +57,10 @@ namespace luv
             _trap_single.update_trap_animation(); 
             if(timer <= TRAP_UP) {
                 _trap_single.float_up();
-            } else if(timer > TRAP_DOWN){
-                _trap_single.float_down();
-            }
+            } 
+            // else if(timer > TRAP_DOWN){
+            //     _trap_single.float_down();
+            // }
             if (_player.get_bounding_box().intersects(_trap_single.get_bounding_box()))
             {
                 lose = true;
