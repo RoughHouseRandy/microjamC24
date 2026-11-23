@@ -24,14 +24,14 @@ namespace luv
 {
     luv_hide_and_seak::luv_hide_and_seak([[maybe_unused]] int completed_games, [[maybe_unused]] const mj::game_data &data) : mj::game("luv"),
         _player(PLAYER_SPAWN, PLAYER_SPEED),
-        _anemone({data.random.get_fixed(MIN_X, MAX_X),
-        data.random.get_fixed(SEA_FLOOR_MIN, SEA_FLOOR_MAX)}),
+        _anemone({data.random.get_fixed(SEA_FLOOR_MIN_X, SEA_FLOOR_MAX_X),
+        data.random.get_fixed(SEA_FLOOR_MIN_Y, SEA_FLOOR_MAX_Y)}),
         _background(bn::regular_bg_items::luv_seafloor.create_bg(0, 0)),
         timer()
     {
         for (int i = 0; i < _recommended_trap_spawn(recommended_difficulty_level(completed_games, data)); i++)
         {
-            _traps.push_back(luv_trap({data.random.get_fixed(MIN_X, MAX_X), data.random.get_fixed(SEA_FLOOR_MIN, SEA_FLOOR_MAX)}));
+            _traps.push_back(luv_trap({data.random.get_fixed(MIN_X, MAX_X), data.random.get_fixed(TRAP_MIN_Y, TRAP_MAX_Y)}));
         }
     }
 
