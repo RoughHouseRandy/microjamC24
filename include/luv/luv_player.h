@@ -36,11 +36,14 @@ namespace luv {
         //Get the player
         luv_player get_player();
 
-        
         /**
          * reads the player dpad movement and updates the sprite animation.
          */
         void _update_animation();
+
+        //Implement scroll logic by gettting player x and y.
+        bn::fixed get_player_x();
+        bn::fixed get_player_y();
         
     private:
      //sprite to display the characters
