@@ -52,6 +52,7 @@ namespace luv
         _player.update();
         _player._update_animation();
         _anemone._update_animation();
+        
         for (luv_trap& _trap_single : _traps)
         {   /*Call the update animation function for each jellyfish */
             _trap_single.update_trap_animation(); 

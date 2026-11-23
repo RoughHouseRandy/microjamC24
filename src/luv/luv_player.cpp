@@ -29,6 +29,22 @@ namespace luv
         {
             _update_animation();
         }
+
+        //X-axis scroll logic
+        if (_sprite.x() > MAX_X) {
+            _sprite.set_x(MIN_X);
+        }
+        if (_sprite.x() < MIN_X) {
+            _sprite.set_x(MAX_X);
+        }
+
+        //Y-axis scroll logic
+        if (_sprite.y() > MAX_Y) {
+            _sprite.set_y(MIN_Y);
+        }
+        if (_sprite.y() < MIN_Y) {
+            _sprite.set_y(MAX_Y);
+        }
     }
 
     // Get the player bounding box
@@ -75,6 +91,9 @@ namespace luv
         set_bounding_box(_sprite, _size);
     }
 
+    /**
+     * reads the player dpad movement and updates the sprite animation.
+     */
     void luv::luv_player::_update_animation()
     {
         
@@ -91,4 +110,13 @@ namespace luv
             _sprite_action.update();
         }
     }
+
+    bn::fixed luv::luv_player::get_player_x() {
+        return _sprite.x();
+    };
+
+    bn::fixed luv::luv_player::get_player_y() {
+        return _sprite.y();
+    };
+
 }
