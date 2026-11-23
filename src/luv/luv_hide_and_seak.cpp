@@ -26,6 +26,7 @@ namespace luv
         _player(PLAYER_SPAWN, PLAYER_SPEED),
         _anemone({data.random.get_fixed(MIN_X, MAX_X),
         data.random.get_fixed(SEA_FLOOR_MIN, SEA_FLOOR_MAX)}),
+        timer(),
         _background(bn::regular_bg_items::luv_seafloor.create_bg(0, 0))
     {
         for (int i = 0; i < _recommended_trap_spawn(recommended_difficulty_level(completed_games, data)); i++)
@@ -61,7 +62,7 @@ namespace luv
                 return mj::game_result(lose, false);
             }
         }
-
+        timer++;
         return result;
     };
 
