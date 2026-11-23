@@ -32,8 +32,8 @@ namespace luv {
     void luv::luv_trap::update_float() {
         //If _float is false, move the trap down
         if (_float == false) {
-            float_down();
             _float = true; //Set _float to true
+            float_down();
         //If _float is true, move the trap up
         } else if (_float == true) {
             float_up();
